@@ -12,12 +12,14 @@ class Destini extends StatelessWidget {
   }
 }
 
+StoryBrain storyBrain = new StoryBrain();
+
 class StoryPage extends StatefulWidget {
   _StoryPageState createState() => _StoryPageState();
 }
 
 class _StoryPageState extends State<StoryPage> {
-  StoryBrain storyBrain = new StoryBrain();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +52,9 @@ class _StoryPageState extends State<StoryPage> {
                 child: FlatButton(
                   onPressed: () {
                     //Choice 1 made by user.
-                    storyBrain.nextStory(1);
+                    setState(() {
+                      storyBrain.nextStory(1);
+                    });
                   },
                   color: Colors.red,
                   child: Text(
@@ -71,7 +75,9 @@ class _StoryPageState extends State<StoryPage> {
                 child: FlatButton(
                   onPressed: () {
                     //Choice 2 made by user.
-                    storyBrain.nextStory(2);
+                    setState(() {
+                      storyBrain.nextStory(2);
+                    });
                   },
                   color: Colors.blue,
                   child: Text(
